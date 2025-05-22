@@ -1,0 +1,82 @@
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #bbbbbb;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.table-container {
+    margin: 20px;
+}
+
+.user-icon {
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+
+.card-container {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-between;
+    flex: 0 0 calc(33.333% - 1rem);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    min-height: 300px;;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(237, 100, 100);
+    width: 10%;
+    color: white;
+    padding: 10px;
+    margin: 20px;
+}
+
+.login-form button:hover {
+    background-color: rgb(117, 54, 54);
+}
+
+.blue-button {
+    background-color: cornflowerblue;
+}
+
+.blue-button:hover {
+    background-color: rgb(50, 74, 120);
+}

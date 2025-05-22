@@ -1,0 +1,23 @@
+<div style="display: flex; justify-content: space-between; margin-bottom: 100px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <mat-icon class="user-icon">account_circle</mat-icon>
+        <p style="font-size: 20px;">{{username}}</p>
+    </div>
+    <div class="buttons">
+        <button type="reset" style="width: auto" (click)="logout()">Kijelentkezés</button>
+    </div>
+</div>
+
+<div *ngIf="patients && patients.length; else noPatientsTemplate">
+    <div class="card" style="width: 80%; margin: auto; justify-content: flex-start; align-content: flex-start;" *ngFor="let patient of patients">
+        <div style="display: flex; align-items: center; width: 100%;">
+            <mat-icon class="patient-icon">account_circle</mat-icon>
+            <div>{{patient.name}}</div>
+        </div>
+        <div style="width: 100%; padding: 10px;">Email: {{patient.email}}</div>
+        <div style="width: 100%; padding: 10px;">Tel.: {{patient.tel}}</div>
+    </div>
+</div>
+<ng-template #noPatientsTemplate>
+    <p>Nincsenek hozzárendelt betegek.</p>
+</ng-template>

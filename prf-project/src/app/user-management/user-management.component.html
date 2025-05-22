@@ -1,0 +1,136 @@
+<div style="padding: 10px">
+    <div style="display: flex; justify-content: space-between; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <mat-icon class="user-icon">account_circle</mat-icon>
+            <p style="font-size: 20px;">{{username}}</p>
+        </div>
+        <div class="buttons">
+            <button type="reset" style="width: auto" (click)="logout()">Kijelentkezés</button>
+        </div>
+    </div>
+</div>
+
+<div style="display: flex; align-items: center; padding: 20px; gap: 50px;">
+    <div>
+        <div>Választott orvos:</div>
+        <div>{{doctor?.name}}</div>
+    </div>
+    <div>
+        <div class="buttons">
+            <button class="blue-button" type="reset" style="width: 100%;" (click)="navigate('/choose-doctor')">Orvos választása</button>
+        </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <div class="card">
+        <div style="width: 100%;">
+            <div style="padding: 5px">Pulzus</div>
+            <div>
+                <div style="display: flex; gap: 50px; padding: 5px" *ngFor="let heartRate of heartRates">
+                    <div>{{heartRate.time | date: 'yyyy. MM. dd.'}}</div>
+                    <div>{{heartRate.heartRate}}</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form class="register-form" [formGroup]="heartRateForm" (ngSubmit)="recordHeartRate()">
+                <input formControlName="heartRate" type="heartRate" placeholder="Pulzus" required />
+                <button class="blue-button" type="button" style="width: auto" (click)="recordHeartRate()">
+                    Hozzáadás
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div style="width: 100%;">
+            <div style="padding: 5px">Vérnyomás</div>
+            <div>
+                <div style="display: flex; gap: 50px; padding: 5px" *ngFor="let bloodPressure of bloodPressures">
+                    <div>{{bloodPressure.time | date: 'yyyy. MM. dd.'}}</div>
+                    <div>{{bloodPressure.bloodPressure}}</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form class="register-form" [formGroup]="bloodPressureForm" (ngSubmit)="recordBloodPressure()">
+                <input formControlName="bloodPressure" type="bloodPressure" placeholder="Vérnyomás" required />
+                <button class="blue-button" type="button" style="width: auto" (click)="recordBloodPressure()">
+                    Hozzáadás
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div style="width: 100%;">
+            <div style="padding: 5px">Vércukor</div>
+            <div>
+                <div style="display: flex; gap: 50px; padding: 5px" *ngFor="let bloodSugar of bloodSugars">
+                    <div>{{bloodSugar.time | date: 'yyyy. MM. dd.'}}</div>
+                    <div>{{bloodSugar.bloodSugar}}</div>
+                </div>
+            </div>
+            </div>
+        <div>
+            <form class="register-form" [formGroup]="bloodSugarForm" (ngSubmit)="recordBloodSugar()">
+                <input formControlName="bloodSugar" type="bloodSugar" placeholder="Vércukor" required />
+                <button class="blue-button" type="button" style="width: auto" (click)="recordBloodSugar()">
+                    Hozzáadás
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div style="width: 100%;">
+            <div style="padding: 5px">Súly</div>
+            <div>
+                <div style="display: flex; gap: 50px; padding: 5px" *ngFor="let weight of weights">
+                    <div>{{weight.time | date: 'yyyy. MM. dd.'}}</div>
+                    <div>{{weight.weight}}</div>
+                </div>
+            </div>
+            </div>
+        <div>
+            <form class="register-form" [formGroup]="weightForm" (ngSubmit)="recordWeight()">
+                <input formControlName="weight" type="weight" placeholder="Súly" required />
+                <button class="blue-button" type="button" style="width: auto" (click)="recordWeight()">
+                    Hozzáadás
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="table-container" *ngIf="users && users.length; else noUsersTemplate">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Tel</th>
+                <th>Role</th>
+                <th>Doctor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user._id}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.doctor}}</td>
+                <td>
+                    <div class="buttons">
+                        <button type="reset" style="width: 100%;" (click)="deleteUser(user._id)">Törlés</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #noUsersTemplate>
+    <p>No users available.</p>
+</ng-template> -->

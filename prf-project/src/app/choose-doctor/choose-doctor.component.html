@@ -1,0 +1,23 @@
+<div style="display: flex; justify-content: space-between; padding: 20px;">
+    <h1>Orvosok</h1>
+    <div class="buttons">
+        <button type="reset" style="width: 100%;" (click)="goBack()">Vissza</button>
+    </div>
+</div>
+
+<div class="card-container" style="padding: 20px;" *ngIf="doctors && doctors.length; else noUsersTemplate">
+    <div class="card" *ngFor="let doctor of doctors">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <mat-icon class="doctor-icon">account_circle</mat-icon>
+            <p>{{doctor.name}}</p>
+        </div>
+        <p style="padding: 15px;">Tel.: {{doctor.tel}}</p>
+        <div class="buttons">
+            <button class="blue-button" style="width: 30%;" (click)="chooseDoctor(doctor._id)">Kiválasztás</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #noUsersTemplate>
+    <p>Nincsenek regisztrált orvosok</p>
+</ng-template>

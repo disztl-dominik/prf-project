@@ -1,0 +1,10 @@
+<form class="login-form"  (ngSubmit)="login()">
+    <input [(ngModel)]="email" name="email" type="email" placeholder="Email cím" required />
+    <input [(ngModel)]="password" name="password" type="password" placeholder="Jelszó" required />
+    <button>
+        Bejelentkezés
+    </button>
+    <button (click)="navigate('/register')">
+        Regisztráció
+    </button>
+</form>

@@ -1,0 +1,23 @@
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input formControlName="email" type="email" placeholder="Email cím" required />
+    <input formControlName="name" type="text" placeholder="Név" required />
+    <input formControlName="tel" type="tel" placeholder="Telefonszám" />
+    <input formControlName="password" type="password" placeholder="Jelszó" required />
+    <input formControlName="confirmPassword" type="password" placeholder="Jelszó megerősítése" required/>
+    <div style="display: flex; justify-content: center; gap: 70px; padding: 5px;">
+        <div>
+            <input formControlName="role" id="doctor" type="radio" name="doctor" value="doctor">
+            <label for="doctor">Doktor</label>
+        </div>
+        <div>
+            <input formControlName="role" id="patient" type="radio" name="patient" value="patient">
+            <label for="patient">Páciens</label>
+        </div>
+    </div>
+    <button type="submit">
+        Regisztráció
+    </button>
+    <button type="button" (click)="navigate('/login')">
+        Bejelentkezés
+    </button>
+</form>
